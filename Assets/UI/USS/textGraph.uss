@@ -1,0 +1,17 @@
+.text-graph{
+	border-left-width:3 px;
+	border-color: black;
+}
+.freespace{
+	background-color:rgb(73,154,8);
+}
+.inner-box{
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-bottom:10px;
+	padding-top:5px;
+	padding-bottom:5px;
+	border-width:2px;
+	border-color: gray;
+	flex-grow: 0;
+}

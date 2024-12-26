@@ -1,0 +1,4 @@
+.unity-foldout{
+	width: 300px;
+	flex-grow:0;
+}

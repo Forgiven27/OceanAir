@@ -1,0 +1,438 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/foldoutGraph.uss?fileID=7433441132597879392&amp;guid=32aeed8d045014e45a3305b74f67ffaa&amp;type=3#foldoutGraph" />
+    <Style src="project://database/Assets/UI/USS/textGraph.uss?fileID=7433441132597879392&amp;guid=c71dbe33286c4a745bcfdf5e0ab0383f&amp;type=3#textGraph" />
+    <Style src="project://database/Assets/UI/USS/progressBar.uss?fileID=7433441132597879392&amp;guid=ce1d853b5dde82241bef341a8cc1ad2d&amp;type=3#progressBar" />
+    <engine:VisualElement name="main-container" style="flex-grow: 1;">
+        <engine:VisualElement name="top-line" style="height: 20px; background-color: rgb(41, 126, 179);">
+            <engine:Label text="Информационная система для авиакомпании &quot;OceanAir&quot;" name="head_top-line" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 7px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="screen" style="flex-grow: 1; align-items: center; justify-content: center; background-color: rgb(173, 173, 173); display: none;">
+            <engine:VisualElement name="AutoWindow" style="width: 400px; height: 206px; background-color: rgb(241, 241, 241); border-left-color: rgb(82, 82, 82); border-right-color: rgb(82, 82, 82); border-top-color: rgb(82, 82, 82); border-bottom-color: rgb(82, 82, 82); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; display: flex;">
+                <engine:Label text="Авторизация" name="enter-text" style="-unity-text-align: upper-center; font-size: 21px;" />
+                <engine:TextField label="Логин" name="login" />
+                <engine:TextField label="Пароль" name="parol" password="true" />
+                <engine:Button text="Войти" name="enter" style="margin-top: 15px;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="main-menu" style="background-color: rgb(173, 173, 173); height: 40px; flex-grow: 1; display: flex;">
+            <engine:VisualElement name="Personnel-control" style="flex-grow: 1; display: none;">
+                <engine:VisualElement name="Navigation-buttons" style="flex-direction: row; justify-content: space-between; align-items: stretch;">
+                    <engine:Button text="Структура компании" name="structure-company" style="flex-grow: 1; background-color: rgb(224, 223, 223);" />
+                    <engine:Button text="Мотивация" name="motivation" style="flex-grow: 1;" />
+                    <engine:Button text="Отчеты" name="reports" style="flex-grow: 1;" />
+                    <engine:Button text="Обратная связь" name="feedback" style="flex-grow: 1;" />
+                    <engine:Button text="Заявки на изменения" name="change-requests" style="flex-grow: 1;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="main-screen" style="flex-grow: 1; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px;">
+                    <engine:VisualElement name="structure-screen" style="flex-grow: 1; background-color: rgb(241, 241, 241); display: flex; flex-direction: row;">
+                        <engine:VisualElement name="side-menu_struc" style="flex-grow: 0; width: 300px;">
+                            <engine:VisualElement name="settings" style="flex-grow: 1; display: none;">
+                                <engine:Foldout text="Полный список работников" name="ListEmployee" />
+                                <engine:Foldout text="Наемные работники" name="ListLeft" />
+                                <engine:DropdownField label="Фильтры" choices="free" index="0" name="Filters" />
+                            </engine:VisualElement>
+                            <engine:VisualElement name="new-role" style="flex-grow: 1; display: flex;">
+                                <engine:Label text="Назначить нового сотрудника" name="Head-role" style="-unity-text-align: upper-center;" />
+                                <engine:VisualElement name="full-name" class="inner-box">
+                                    <engine:TextField label="Фамилия" placeholder-text="Домбровский" name="Surename" />
+                                    <engine:TextField label="Имя" placeholder-text="Андрей" name="Name" />
+                                    <engine:TextField label="Отчество" placeholder-text="Анатольевич" name="Secondname" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="work" class="inner-box">
+                                    <engine:DropdownField label="Отдел" name="Department" />
+                                    <engine:DropdownField label="Должность" name="Job-title" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="Add-info" class="inner-box">
+                                    <engine:TextField label="Номер телефона" placeholder-text="+7(800)900-89-89" name="phone" />
+                                    <engine:TextField label="Почта" placeholder-text="andreydom@mail.ru" name="e-mail" />
+                                    <engine:TextField label="Адрес" placeholder-text="Петропавловская 2" name="Address" />
+                                </engine:VisualElement>
+                                <engine:Button text="Назначить" name="AddHuman" />
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                        <engine:VisualElement name="divider" style="flex-grow: 0; width: 4px; background-color: rgb(173, 173, 173);" />
+                        <engine:VisualElement name="graph-struc" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap-reverse; align-self: center; justify-content: center;">
+                            <engine:VisualElement name="blocks" style="flex-grow: 1; justify-content: space-around; display: none;">
+                                <engine:Foldout text="Бухгалтерия" name="Accounting" />
+                                <engine:Foldout text="Технологический отдел" name="Engineering" />
+                                <engine:Foldout text="Маркетинговый отдел" name="Marketing" />
+                                <engine:Foldout text="Отдел полетов" name="Flight" />
+                                <engine:Foldout text="Финансовый отдел" name="Finance" />
+                                <engine:Foldout text="Диспетчерский отдел" name="Dispatch" />
+                            </engine:VisualElement>
+                            <engine:VisualElement name="AccountingBlock" style="margin-left: 40px; margin-top: 40px; margin-right: 40px; margin-bottom: 40px;">
+                                <engine:Label text="Бухгалтерия" name="Name" />
+                                <engine:VisualElement name="Tree" style="flex-grow: 1; flex-direction: row;">
+                                    <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                    <engine:VisualElement name="first-level" style="flex-grow: 1;">
+                                        <engine:Label text="Директор Бухгалтерии - Анна Витальевна" name="SuperVisor" class="text-graph" />
+                                        <engine:VisualElement name="second-level" style="flex-grow: 1; flex-direction: row;">
+                                            <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                            <engine:VisualElement name="Employees" style="flex-grow: 1;">
+                                                <engine:Label text="Борис Васильевич" name="first" class="text-graph" />
+                                                <engine:Label text="Анна Юрьевна" name="second" class="text-graph" />
+                                                <engine:Label text="Мария Игорьевна" name="third" class="text-graph" />
+                                                <engine:Label text="Вакантное место" name="Freespace" class="freespace" />
+                                                <engine:Label text="Вакантное место" name="Freespace" class="freespace" />
+                                            </engine:VisualElement>
+                                        </engine:VisualElement>
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="EngineeringBlock" style="margin-left: 40px; margin-top: 40px; margin-right: 40px; margin-bottom: 40px;">
+                                <engine:Label text="Технологический отдел" name="Name" />
+                                <engine:VisualElement name="Tree" style="flex-grow: 1; flex-direction: row;">
+                                    <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                    <engine:VisualElement name="first-level" style="flex-grow: 1;">
+                                        <engine:Label text="Технический директор - Андрей Александрович" name="SuperVisor" class="text-graph" />
+                                        <engine:VisualElement name="second-level" style="flex-grow: 1; flex-direction: row;">
+                                            <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                            <engine:VisualElement name="Employees" style="flex-grow: 1;">
+                                                <engine:Label text="Татьяна Юрьевна" name="first" class="text-graph" />
+                                                <engine:Label text="Петр Юрьевич" name="second" class="text-graph" />
+                                                <engine:Label text="Артем Андреевич" name="third" class="text-graph" />
+                                            </engine:VisualElement>
+                                        </engine:VisualElement>
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="MarketingBlock" style="margin-left: 40px; margin-top: 40px; margin-right: 40px; margin-bottom: 40px;">
+                                <engine:Label text="Маркетинговый отдел" name="Name" />
+                                <engine:VisualElement name="Tree" style="flex-grow: 1; flex-direction: row;">
+                                    <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                    <engine:VisualElement name="first-level" style="flex-grow: 1;">
+                                        <engine:Label text="Директор Маркетингового отдела - Ярослав Игорьевич" name="SuperVisor" class="text-graph" />
+                                        <engine:VisualElement name="second-level" style="flex-grow: 1; flex-direction: row;">
+                                            <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                            <engine:VisualElement name="Employees" style="flex-grow: 1;">
+                                                <engine:Label text="Дарья Павловна" name="first" class="text-graph" />
+                                                <engine:Label text="Дарья Дмитриевна" name="second" class="text-graph" />
+                                                <engine:Label text="Дарья Ринчиновна" name="third" class="text-graph" />
+                                            </engine:VisualElement>
+                                        </engine:VisualElement>
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="FlightBlock" style="margin-left: 40px; margin-top: 40px; margin-right: 40px; margin-bottom: 40px;">
+                                <engine:Label text="Отдел полетов" name="Name" />
+                                <engine:VisualElement name="Tree" style="flex-grow: 1; flex-direction: row;">
+                                    <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                    <engine:VisualElement name="first-level" style="flex-grow: 1;">
+                                        <engine:Label text="Главный флайт-менеджер - Леонид Александрович" name="SuperVisor" emoji-fallback-support="false" class="text-graph" />
+                                        <engine:VisualElement name="second-level" style="flex-grow: 1; flex-direction: row;">
+                                            <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                            <engine:VisualElement name="Employees" style="flex-grow: 1;">
+                                                <engine:Label text="Михаил Александрович" name="first" class="text-graph" />
+                                                <engine:Label text="Роман Александрович" name="second" class="text-graph" />
+                                                <engine:Label text="Вероника Александровна" name="third" class="text-graph" />
+                                            </engine:VisualElement>
+                                        </engine:VisualElement>
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="FinanceBlock" style="margin-left: 40px; margin-top: 40px; margin-right: 40px; margin-bottom: 40px;">
+                                <engine:Label text="Финансовый отдел" name="Name" />
+                                <engine:VisualElement name="Tree" style="flex-grow: 1; flex-direction: row;">
+                                    <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                    <engine:VisualElement name="first-level" style="flex-grow: 1;">
+                                        <engine:Label text="Директор финансового отдела - Дмитрий Дмитриевич" name="SuperVisor" class="text-graph" />
+                                        <engine:VisualElement name="second-level" style="flex-grow: 1; flex-direction: row;">
+                                            <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                            <engine:VisualElement name="Employees" style="flex-grow: 1;">
+                                                <engine:Label text="Алексей Алексеевич" name="first" class="text-graph" />
+                                                <engine:Label text="Василий Васильевич" name="second" class="text-graph" />
+                                                <engine:Label text="Роман Романович" name="third" class="text-graph" />
+                                                <engine:Label text="Вакантное место" name="Freespace" class="freespace" />
+                                            </engine:VisualElement>
+                                        </engine:VisualElement>
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="DispatchBlock" style="margin-left: 40px; margin-top: 40px; margin-right: 40px; margin-bottom: 40px;">
+                                <engine:Label text="Диспетчерский отдел" name="Name" />
+                                <engine:VisualElement name="Tree" style="flex-grow: 1; flex-direction: row;">
+                                    <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                    <engine:VisualElement name="first-level" style="flex-grow: 1;">
+                                        <engine:Label text="Директор диспетчерского отдела - Анна Оксановна" name="SuperVisor" class="text-graph" />
+                                        <engine:VisualElement name="second-level" style="flex-grow: 1; flex-direction: row;">
+                                            <engine:VisualElement name="Margin" style="flex-grow: 1; width: 15%;" />
+                                            <engine:VisualElement name="Employees" style="flex-grow: 1;">
+                                                <engine:Label text="Екатерина Анджеликовна" name="first" class="text-graph" />
+                                                <engine:Label text="Лидия Галиновна" name="second" class="text-graph" />
+                                                <engine:Label text="Мария Елизоветовна" name="third" class="text-graph" />
+                                                <engine:Label text="Вакантное место" name="Freespace" class="freespace" />
+                                                <engine:Label text="Вакантное место" name="Freespace" class="freespace" />
+                                            </engine:VisualElement>
+                                        </engine:VisualElement>
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="Route-development" style="flex-grow: 1; display: flex;">
+                <engine:VisualElement name="Navigation-buttons" style="flex-direction: row; justify-content: space-between; align-items: stretch;">
+                    <engine:Button text="Маршруты" name="Route" style="flex-grow: 1; background-color: rgb(188, 188, 188);" />
+                    <engine:Button text="Моделирование" name="Modeling" style="flex-grow: 1; background-color: rgb(188, 188, 188);" />
+                    <engine:Button text="Реализация" name="Realization" style="flex-grow: 1;" />
+                    <engine:Button text="Обратная связь" name="feedback" style="flex-grow: 1;" />
+                    <engine:Button text="Архив" name="change-requests" style="flex-grow: 1; background-color: rgb(224, 223, 223);" />
+                </engine:VisualElement>
+                <engine:VisualElement name="main-screen" style="flex-grow: 1; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px;">
+                    <engine:VisualElement name="structure-screen" style="flex-grow: 1; background-color: rgb(241, 241, 241); display: none; flex-direction: row;">
+                        <engine:VisualElement name="left-side" style="flex-grow: 1; flex-direction: column; flex-wrap: wrap-reverse;">
+                            <engine:VisualElement name="search-box" style="height: 45%;">
+                                <engine:VisualElement name="search-line" style="flex-grow: 0; flex-direction: row; align-items: flex-start;">
+                                    <engine:VisualElement name="search-icon" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BF%D0%BE%D0%B8%D1%81%D0%BA-50.png?fileID=2800000&amp;guid=0198d2d6fb095ac4dac87ff2bb34594d&amp;type=3#icons8-поиск-50&quot;); -unity-background-scale-mode: scale-to-fit; background-size: 30px 30px; width: 40px; height: 40px;" />
+                                    <engine:TextField placeholder-text="Новосибирск" name="TextField" style="flex-grow: 1;" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="Nsk" style="flex-grow: 1;">
+                                    <engine:Label text="Толмачево г. Новосибирск" name="Name" />
+                                    <engine:VisualElement name="Desc-box" style="flex-grow: 1; flex-direction: row;">
+                                        <engine:VisualElement name="Margin" style="flex-grow: 0; width: 15%;" />
+                                        <engine:Label text="Международный аэропорт Новосибирск (Толмачёво) им. А.И.Покрышкина" name="Description" style="white-space: normal; flex-grow: 1; -unity-text-align: upper-left;" />
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="divider1" style="flex-grow: 0; width: auto; background-color: rgb(173, 173, 173); height: 4px;" />
+                            <engine:VisualElement name="documents" style="flex-grow: 1; flex-direction: column; flex-wrap: wrap-reverse;">
+                                <engine:Label text="Документы" name="LabelDoc" style="border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-bottom-width: 3px; -unity-text-align: upper-center;" />
+                                <engine:DropdownField label="Тип документа" name="TypeDoc" />
+                                <engine:Button text="Создать новый документ" name="NewDoc" />
+                                <engine:Button text="Переход в архив" name="Archive" />
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                        <engine:VisualElement name="divider2" style="flex-grow: 0; width: 4px; background-color: rgb(173, 173, 173);" />
+                        <engine:VisualElement name="right-side" style="flex-grow: 1; flex-direction: column; flex-wrap: wrap-reverse; width: 60%;">
+                            <engine:VisualElement name="flight-map" style="flex-direction: row; flex-wrap: wrap-reverse; align-self: center; justify-content: center; background-image: url(&quot;project://database/Assets/UI/%D0%9D%D1%81%D0%BA%D0%A1%D0%B0%D0%BC%D0%BE%D0%BB%D0%B5%D1%82%D1%8B.PNG?fileID=2800000&amp;guid=4863c0fa94724f04f9f9cfea1a930b54&amp;type=3#НскСамолеты&quot;); -unity-background-scale-mode: scale-to-fit; background-size: contain; width: 100%; min-height: 50%; background-position-x: left 0; background-position-y: top 0; background-repeat: repeat repeat;" />
+                            <engine:VisualElement name="divider3" style="flex-grow: 0; width: auto; background-color: rgb(173, 173, 173); height: 4px;" />
+                            <engine:VisualElement name="demand-box" style="flex-grow: 1; flex-direction: column; flex-wrap: wrap-reverse; border-bottom-width: 3px; align-items: stretch;">
+                                <engine:Label text="Анализ аэродромов" name="LabelDemand" style="border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-bottom-width: 3px; flex-grow: 0; -unity-text-align: upper-center;" />
+                                <engine:VisualElement name="ComplLine" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="IconAir" style="background-image: url(&quot;project://database/Assets/UI/free-icon-plane-723955.png?fileID=2800000&amp;guid=2028073989913b641af031c258aa166a&amp;type=3#free-icon-plane-723955&quot;); -unity-background-scale-mode: scale-to-fit; min-width: 67px;" />
+                                    <engine:Label text="Шереметьево, МСК" name="LabelAir" />
+                                    <engine:VisualElement name="Arrow" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BA%D0%B0-50%20%E2%80%94%20%D0%BB%D0%B5%D0%B2%D0%BE.png?fileID=2800000&amp;guid=330c34424bb71224b8d422dcb515d1fd&amp;type=3#icons8-стрелка-50 — лево&quot;); -unity-background-scale-mode: scale-to-fit; background-position-x: left 0;" />
+                                    <engine:ProgressBar value="91.6" title="нагруженность" name="ProgressBar" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="ComplLine" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="IconAir" style="background-image: url(&quot;project://database/Assets/UI/free-icon-plane-723955.png?fileID=2800000&amp;guid=2028073989913b641af031c258aa166a&amp;type=3#free-icon-plane-723955&quot;); -unity-background-scale-mode: scale-to-fit; min-width: 67px;" />
+                                    <engine:Label text="Пулково, СПб" name="LabelAir" />
+                                    <engine:VisualElement name="Arrow" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BA%D0%B0-50%20%E2%80%94%20%D0%BB%D0%B5%D0%B2%D0%BE.png?fileID=2800000&amp;guid=330c34424bb71224b8d422dcb515d1fd&amp;type=3#icons8-стрелка-50 — лево&quot;); -unity-background-scale-mode: scale-to-fit; background-position-x: left 0;" />
+                                    <engine:ProgressBar value="84.9" title="нагруженность" name="ProgressBar" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="ComplLine" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="IconAir" style="background-image: url(&quot;project://database/Assets/UI/free-icon-plane-723955.png?fileID=2800000&amp;guid=2028073989913b641af031c258aa166a&amp;type=3#free-icon-plane-723955&quot;); -unity-background-scale-mode: scale-to-fit; min-width: 67px;" />
+                                    <engine:Label text="Домодедово, МСК" name="LabelAir" />
+                                    <engine:VisualElement name="Arrow" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BA%D0%B0-50%20%E2%80%94%20%D0%BB%D0%B5%D0%B2%D0%BE.png?fileID=2800000&amp;guid=330c34424bb71224b8d422dcb515d1fd&amp;type=3#icons8-стрелка-50 — лево&quot;); -unity-background-scale-mode: scale-to-fit; background-position-x: left 0;" />
+                                    <engine:ProgressBar value="83.5" title="нагруженность" name="ProgressBar" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="ComplLine" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="IconAir" style="background-image: url(&quot;project://database/Assets/UI/free-icon-plane-723955.png?fileID=2800000&amp;guid=2028073989913b641af031c258aa166a&amp;type=3#free-icon-plane-723955&quot;); -unity-background-scale-mode: scale-to-fit; min-width: 67px;" />
+                                    <engine:Label text="Внуково, МСК" name="LabelAir" />
+                                    <engine:VisualElement name="Arrow" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BA%D0%B0-50%20%E2%80%94%20%D0%BB%D0%B5%D0%B2%D0%BE.png?fileID=2800000&amp;guid=330c34424bb71224b8d422dcb515d1fd&amp;type=3#icons8-стрелка-50 — лево&quot;); -unity-background-scale-mode: scale-to-fit; background-position-x: left 0;" />
+                                    <engine:ProgressBar value="79.3" title="нагруженность" name="ProgressBar" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="ComplLine" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="IconAir" style="background-image: url(&quot;project://database/Assets/UI/free-icon-plane-723955.png?fileID=2800000&amp;guid=2028073989913b641af031c258aa166a&amp;type=3#free-icon-plane-723955&quot;); -unity-background-scale-mode: scale-to-fit; min-width: 67px;" />
+                                    <engine:Label text="Сочи" name="LabelAir" />
+                                    <engine:VisualElement name="Arrow" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BA%D0%B0-50%20%E2%80%94%20%D0%BB%D0%B5%D0%B2%D0%BE.png?fileID=2800000&amp;guid=330c34424bb71224b8d422dcb515d1fd&amp;type=3#icons8-стрелка-50 — лево&quot;); -unity-background-scale-mode: scale-to-fit; background-position-x: left 0;" />
+                                    <engine:ProgressBar value="63.2" title="нагруженность" name="ProgressBar" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="ComplLine" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="IconAir" style="background-image: url(&quot;project://database/Assets/UI/free-icon-plane-723955.png?fileID=2800000&amp;guid=2028073989913b641af031c258aa166a&amp;type=3#free-icon-plane-723955&quot;); -unity-background-scale-mode: scale-to-fit; min-width: 67px;" />
+                                    <engine:Label text="Толмачево, НСК" name="LabelAir" />
+                                    <engine:VisualElement name="Arrow" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BA%D0%B0-50%20%E2%80%94%20%D0%BB%D0%B5%D0%B2%D0%BE.png?fileID=2800000&amp;guid=330c34424bb71224b8d422dcb515d1fd&amp;type=3#icons8-стрелка-50 — лево&quot;); -unity-background-scale-mode: scale-to-fit; background-position-x: left 0;" />
+                                    <engine:ProgressBar value="43.3" title="нагруженность" name="ProgressBar" />
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="modeling-screen" style="flex-grow: 1; background-color: rgb(241, 241, 241); display: none; flex-direction: column;">
+                        <engine:VisualElement name="top-box" style="height: 60px; padding-top: 2px;">
+                            <engine:VisualElement name="main-file-manag" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-items: flex-start; align-self: flex-start;">
+                                <engine:VisualElement name="Base-file" style="flex-grow: 0; flex-direction: row; flex-wrap: wrap; background-size: 100% 80%;">
+                                    <engine:Button name="save" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D1%82%D1%8C-50.png?fileID=2800000&amp;guid=132dbd230c07483438230f411d132401&amp;type=3#icons8-сохранить-50&quot;);" />
+                                    <engine:Button name="orientation" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D0%BF%D0%B0%D0%BF%D0%BA%D1%83-64.png?fileID=2800000&amp;guid=ec53aee683300834e8c52e83561fc43d&amp;type=3#icons8-добавить-папку-64&quot;); background-size: 80% 80%;" />
+                                    <engine:Button name="tools" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81-50.png?fileID=2800000&amp;guid=3894704aaa678fb4fb12b52406ecbe75&amp;type=3#icons8-сервис-50&quot;); background-size: 80% 80%;" />
+                                    <engine:Button name="filter" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%84%D0%B8%D0%BB%D1%8C%D1%82%D1%80-50.png?fileID=2800000&amp;guid=52f9beb7114d5ed43864c434060fe30f&amp;type=3#icons8-фильтр-50&quot;); background-size: 80% 80%;" />
+                                    <engine:Button name="filter" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-50.png?fileID=2800000&amp;guid=48808b8263b1b0c4eb438f8595299a5a&amp;type=3#icons8-изображение-50&quot;); background-size: 80% 80%;" />
+                                    <engine:Button name="filter" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BA%D0%B0%D1%80%D1%82%D0%B0-50.png?fileID=2800000&amp;guid=e69082019290c4d45ab42a7d3a92c131&amp;type=3#icons8-карта-50&quot;); background-size: 80% 80%;" />
+                                    <engine:Button name="filter" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81-50.png?fileID=2800000&amp;guid=18dac20ed2280d84f9d4f43748ad74bb&amp;type=3#icons8-вопрос-50&quot;); background-size: 80% 80%;" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="back-next" style="flex-grow: 0; flex-direction: row; flex-wrap: wrap; background-size: 100% 80%; margin-left: 20px; margin-right: 20px;">
+                                    <engine:Button name="filter" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-left-2-50.png?fileID=2800000&amp;guid=00ec500127171014a9f9e2d7274b6621&amp;type=3#icons8-left-2-50&quot;); background-size: 80% 80%;" />
+                                    <engine:Button name="filter" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-left-2-50%20%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.png?fileID=2800000&amp;guid=362bba3464ebbc1498bd1b3940de4380&amp;type=3#icons8-left-2-50 — копия&quot;); background-size: 80% 80%;" />
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                        <engine:VisualElement name="divider2" style="flex-grow: 0; background-color: rgb(173, 173, 173); height: 4px;" />
+                        <engine:VisualElement name="bottom-box" style="flex-grow: 1; flex-direction: row;">
+                            <engine:VisualElement name="tools" style="flex-grow: 0; width: 300px; padding-top: 20px;">
+                                <engine:VisualElement name="Base" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap;">
+                                    <engine:Button name="lupa" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BF%D0%BE%D0%B8%D1%81%D0%BA-50.png?fileID=2800000&amp;guid=0198d2d6fb095ac4dac87ff2bb34594d&amp;type=3#icons8-поиск-50&quot;);" />
+                                    <engine:Button name="4arrows" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D1%89%D0%B5%D0%BD%D0%B8%D0%B5-50.png?fileID=2800000&amp;guid=0177f39c925f8e348b60c32439257b5a&amp;type=3#icons8-перемещение-50&quot;);" />
+                                    <engine:Button name="hand" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B2%D1%81%D1%8F-%D1%80%D1%83%D0%BA%D0%B0-60.png?fileID=2800000&amp;guid=e6626c344d0dfae4fa261328f7a1b415&amp;type=3#icons8-вся-рука-60&quot;);" />
+                                    <engine:Button name="trash" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BC%D1%83%D1%81%D0%BE%D1%80-64.png?fileID=2800000&amp;guid=0e95b6f4a43af8848bec0b74dde7a962&amp;type=3#icons8-мусор-64&quot;);" />
+                                    <engine:Button name="copy" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D0%BA%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-96.png?fileID=2800000&amp;guid=f3842a706678bb748b3fa929643228c8&amp;type=3#icons8-скопировать-96&quot;);" />
+                                    <engine:Button name="cut" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B2%D1%8B%D1%80%D0%B5%D0%B7%D0%B0%D1%82%D1%8C-50.png?fileID=2800000&amp;guid=f617daae416f81147bfbe8743c522980&amp;type=3#icons8-вырезать-50&quot;); background-size: 80% 80%;" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="Geometry" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap;">
+                                    <engine:Button name="linear" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BB%D0%B8%D0%BD%D0%B5%D0%B9%D0%BA%D0%B0-50.png?fileID=2800000&amp;guid=7e13c79c962f77b47b4b4e9d3dc7d098&amp;type=3#icons8-линейка-50&quot;);" />
+                                    <engine:Button name="angle" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BD%D0%B0%D0%BA%D0%BB%D0%BE%D0%BD-32.png?fileID=2800000&amp;guid=c60b682ebc6b19a408e38ac8518baa4a&amp;type=3#icons8-наклон-32&quot;);" />
+                                    <engine:Button name="size" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BF%D0%BE%D0%B2%D0%B5%D1%80%D1%85%D0%BD%D0%BE%D1%81%D1%82%D1%8C-50.png?fileID=2800000&amp;guid=a1e44b2cc35efb94294acb30f5dc6669&amp;type=3#icons8-поверхность-50&quot;); -unity-background-scale-mode: stretch-to-fill; background-size: 80% 80%;" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="Weather" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap;">
+                                    <engine:Button name="clouds" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BE%D0%B1%D0%BB%D0%B0%D0%BA%D0%B0-64.png?fileID=2800000&amp;guid=4148901ef27a7e1488899322796fde5e&amp;type=3#icons8-облака-64&quot;);" />
+                                    <engine:Button name="rain" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%B4%D0%BE%D0%B6%D0%B4%D1%8C-50.png?fileID=2800000&amp;guid=991cac0932893a84ab13b888cb4330ba&amp;type=3#icons8-сильный-дождь-50&quot;); background-size: 80% 80%;" />
+                                    <engine:Button name="snow" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D0%BD%D0%B5%D0%B3-50.png?fileID=2800000&amp;guid=b2dc5d57ae5d96d4480b94b9f35ac286&amp;type=3#icons8-снег-50&quot;); background-size: 80% 80%;" />
+                                    <engine:Button name="rainsnow" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BC%D0%BE%D0%BA%D1%80%D1%8B%D0%B9-%D1%81%D0%BD%D0%B5%D0%B3-50.png?fileID=2800000&amp;guid=200278a539240204fb28da9023067f7e&amp;type=3#icons8-мокрый-снег-50&quot;); background-size: 80% 80%;" />
+                                    <engine:Button name="solidrain" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B3%D1%80%D0%B0%D0%B4-50.png?fileID=2800000&amp;guid=f9f1a943a1a44174da7047ba286d8931&amp;type=3#icons8-град-50&quot;); background-size: 80% 80%;" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="Wind" style="flex-grow: 1; flex-wrap: wrap; flex-direction: row;">
+                                    <engine:Button name="windAdd" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B2%D0%BE%D0%B7%D0%B4%D1%83%D1%85-50.png?fileID=2800000&amp;guid=f17c93be417eaf040810eb81044b6f42&amp;type=3#icons8-воздух-50&quot;); background-size: 80% 80%;" />
+                                    <engine:Button name="windSpeed" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D0%BA%D0%BE%D1%80%D0%BE%D1%81%D1%82%D1%8C-%D0%B2%D0%B5%D1%82%D1%80%D0%B0-43-47-50.png?fileID=2800000&amp;guid=e3685fe8f33d8b248bcfbd93c8ea45f7&amp;type=3#icons8-скорость-ветра-43-47-50&quot;); background-size: 80% 80%;" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="RouteEdit" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap;">
+                                    <engine:Button name="line" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BB%D0%B8%D0%BD%D0%B8%D1%8F-64.png?fileID=2800000&amp;guid=cdf068b5815eefb4ca59d4e4eb8fcf2a&amp;type=3#icons8-линия-64&quot;);" />
+                                    <engine:Button name="lineshift" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BB%D0%B8%D0%BD%D0%B8%D1%8F-50.png?fileID=2800000&amp;guid=62224857d19b49342a139b91b2fc301c&amp;type=3#icons8-линия-50&quot;);" />
+                                    <engine:Button name="linebreak" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BB%D0%BE%D0%BC%D0%B0%D0%BD%D0%B0%D1%8F-%D0%BA%D1%80%D0%B8%D0%B2%D0%B0%D1%8F-96.png?fileID=2800000&amp;guid=03ce618e9f77fde46b947584461108a8&amp;type=3#icons8-ломаная-кривая-96&quot;);" />
+                                    <engine:Button name="linebeze" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BF%D0%B5%D1%80%D0%BE-48.png?fileID=2800000&amp;guid=a4a1e6812af5ac24e80f13b89da43003&amp;type=3#icons8-перо-48&quot;);" />
+                                    <engine:Button name="linespline" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BC%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82-48%20(1).png?fileID=2800000&amp;guid=4608a0200a5c29b42a90d5dc914a562f&amp;type=3#icons8-маршрут-48 (1)&quot;);" />
+                                    <engine:Button name="linearrow" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BC%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82-64.png?fileID=2800000&amp;guid=6075ab6b3be06b74da545f218d70ff84&amp;type=3#icons8-маршрут-64&quot;);" />
+                                    <engine:Button name="line" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BC%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82-48.png?fileID=2800000&amp;guid=0f6ee8e3a75ef4d4fae265e6fcee05cb&amp;type=3#icons8-маршрут-48&quot;);" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="Additional" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap;">
+                                    <engine:Button name="location" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B3%D0%BB%D0%BE%D0%B1%D1%83%D1%81-60.png?fileID=2800000&amp;guid=9d6e851110f9f6d4aa4c602923997487&amp;type=3#icons8-глобус-60&quot;);" />
+                                    <engine:Button name="fuel" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%82%D0%BE%D0%BF%D0%BB%D0%B8%D0%B2%D0%BE-50.png?fileID=2800000&amp;guid=5727eaf8e1d96704aa6c49c0b172af17&amp;type=3#icons8-топливо-50&quot;); background-size: 80% 80%;" />
+                                    <engine:Button name="text" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D1%82%D0%B5%D0%BA%D1%81%D1%82-60.png?fileID=2800000&amp;guid=78c59c9d2654a51458ebbadb1503f74e&amp;type=3#icons8-текст-60&quot;);" />
+                                    <engine:Button name="birds" style="width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BB%D0%B5%D1%82%D1%8F%D1%89%D0%B0%D1%8F-%D1%83%D1%82%D0%BA%D0%B0-50.png?fileID=2800000&amp;guid=543f3d35b5eddcc419d5c9969a86c202&amp;type=3#icons8-летящая-утка-50&quot;);" />
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="divider2" style="flex-grow: 0; width: 4px; background-color: rgb(173, 173, 173);" />
+                            <engine:VisualElement name="main-scene" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/%D0%9A%D0%B0%D1%80%D1%82%D0%B01.PNG?fileID=2800000&amp;guid=79ad198a7c2e4e1489b59f4ee58ad513&amp;type=3#Карта1&quot;); -unity-background-scale-mode: scale-and-crop;" />
+                            <engine:VisualElement name="divider2" style="flex-grow: 0; width: 4px; background-color: rgb(173, 173, 173);" />
+                            <engine:VisualElement name="Repository" style="flex-grow: 0; width: 300px; padding-top: 5px; padding-left: 5px;">
+                                <engine:VisualElement name="rep-string" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="margin" style="flex-grow: 0; width: 0;" />
+                                    <engine:VisualElement name="text-img" style="flex-grow: 1; flex-direction: row;">
+                                        <engine:VisualElement name="img-text" style="background-image: url(&quot;project://database/Assets/UI/free-icon-folder-4152306.png?fileID=2800000&amp;guid=80307fb7662218440a467a247ee956d8&amp;type=3#free-icon-folder-4152306&quot;); width: 30px; height: 30px;" />
+                                        <engine:Label text="Ocean-Air" name="img-text" />
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                                <engine:VisualElement name="rep-string" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="margin" style="flex-grow: 0; width: 30px;" />
+                                    <engine:VisualElement name="text-img" style="flex-grow: 1; flex-direction: row;">
+                                        <engine:VisualElement name="img-text" style="background-image: url(&quot;project://database/Assets/UI/free-icon-folder-4152306.png?fileID=2800000&amp;guid=80307fb7662218440a467a247ee956d8&amp;type=3#free-icon-folder-4152306&quot;); width: 30px; height: 30px;" />
+                                        <engine:Label text="Стратегии" name="img-text" />
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                                <engine:VisualElement name="rep-string" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="margin" style="flex-grow: 0; width: 30px;" />
+                                    <engine:VisualElement name="text-img" style="flex-grow: 1; flex-direction: row;">
+                                        <engine:VisualElement name="img-text" style="background-image: url(&quot;project://database/Assets/UI/free-icon-folder-4152306.png?fileID=2800000&amp;guid=80307fb7662218440a467a247ee956d8&amp;type=3#free-icon-folder-4152306&quot;); width: 30px; height: 30px;" />
+                                        <engine:Label text="Отчеты" name="img-text" />
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                                <engine:VisualElement name="rep-string" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="margin" style="flex-grow: 0; width: 30px;" />
+                                    <engine:VisualElement name="text-img" style="flex-grow: 1; flex-direction: row;">
+                                        <engine:VisualElement name="img-text" style="background-image: url(&quot;project://database/Assets/UI/free-icon-folder-4152306.png?fileID=2800000&amp;guid=80307fb7662218440a467a247ee956d8&amp;type=3#free-icon-folder-4152306&quot;); width: 30px; height: 30px;" />
+                                        <engine:Label text="Модели" name="img-text" />
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                                <engine:VisualElement name="rep-string" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="margin" style="flex-grow: 0; width: 30px;" />
+                                    <engine:VisualElement name="text-img" style="flex-grow: 1; flex-direction: row;">
+                                        <engine:VisualElement name="img-text" style="background-image: url(&quot;project://database/Assets/UI/free-icon-folder-4152306.png?fileID=2800000&amp;guid=80307fb7662218440a467a247ee956d8&amp;type=3#free-icon-folder-4152306&quot;); width: 30px; height: 30px;" />
+                                        <engine:Label text="Маршруты" name="img-text" />
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                                <engine:VisualElement name="rep-string" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="margin" style="flex-grow: 0; width: 60px;" />
+                                    <engine:VisualElement name="text-img" style="flex-grow: 1; flex-direction: row;">
+                                        <engine:VisualElement name="img-text" style="background-image: url(&quot;project://database/Assets/UI/free-icon-folder-4152306.png?fileID=2800000&amp;guid=80307fb7662218440a467a247ee956d8&amp;type=3#free-icon-folder-4152306&quot;); width: 30px; height: 30px;" />
+                                        <engine:Label text="Принятые" name="img-text" />
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                                <engine:VisualElement name="rep-string" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="margin" style="flex-grow: 0; width: 60px;" />
+                                    <engine:VisualElement name="text-img" style="flex-grow: 1; flex-direction: row;">
+                                        <engine:VisualElement name="img-text" style="background-image: url(&quot;project://database/Assets/UI/free-icon-folder-4152306.png?fileID=2800000&amp;guid=80307fb7662218440a467a247ee956d8&amp;type=3#free-icon-folder-4152306&quot;); width: 30px; height: 30px;" />
+                                        <engine:Label text="В разработке" name="img-text" />
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                                <engine:VisualElement name="rep-string" style="flex-grow: 0; flex-direction: row;">
+                                    <engine:VisualElement name="margin" style="flex-grow: 0; width: 90px;" />
+                                    <engine:VisualElement name="text-img" style="flex-grow: 1; flex-direction: row;">
+                                        <engine:VisualElement name="img-text" style="background-image: url(&quot;project://database/Assets/UI/icons8-%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BA%D0%B0-50.png?fileID=2800000&amp;guid=0a38df345d951b043a114a04f749d1e9&amp;type=3#icons8-стрелка-50&quot;); width: 30px; height: 30px;" />
+                                        <engine:Label text="Новый_маршрут" name="img-text" />
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                        <engine:VisualElement name="divider2" style="flex-grow: 0; background-color: rgb(173, 173, 173); height: 4px;" />
+                        <engine:VisualElement name="Console" style="flex-grow: 0; height: 100px;">
+                            <engine:Label text="Консоль" name="HeadConsole" />
+                            <engine:Label text="&lt;engine:UXML xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:engine=&quot;UnityEngine.UIElements&quot; xmlns:editor=&quot;UnityEditor.UIElements&quot; noNamespaceSchemaLocation=&quot;../../../UIElementsSchema/UIElements.xsd&quot; editor-extension-mode=&quot;False&quot;&gt;&#10;    &lt;Style src=&quot;project://database/Assets/UI/USS/foldoutGraph.uss?fileID=7433441132597879392&amp;amp;guid=32aeed8d045014e45a3305b74f67ffaa&amp;amp;type=3#foldoutGraph&quot; /&gt;&#10;    &lt;Style src=&quot;project://database/Assets/UI/USS/textGraph.uss?fileID=7433441132597879392&amp;amp;guid=c71dbe33286c4a745bcfdf5e0ab0383f&amp;amp;type=3#textGraph&quot; /&gt;&#10;    &lt;Style src=&quot;project://database/Assets/UI/USS/progressBar.uss?fileID=7433441132597879392&amp;amp;guid=ce1d853b5dde82241bef341a8cc1ad2d&amp;amp;type=3#progressBar&quot; /&gt;&#10;    &lt;engine:VisualElement name=&quot;main-container&quot; style=&quot;flex-grow: 1;&quot;&gt;&#10;        &lt;engine:VisualElement name=&quot;top-line&quot; style=&quot;height: 20px; background-color: rgb(41, 126, 179);&quot;&gt;&#10;            &lt;engine:Label text=&quot;Информационная система для авиакомпании &amp;quot;OceanAir&amp;quot;&quot; name=&quot;head_top-line&quot; style=&quot;margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 7px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;&quot; /&gt;&#10;        &lt;/engine:VisualElement&gt;&#10;        &lt;engine:VisualElement name=&quot;screen&quot; style=&quot;flex-grow: 1; align-items: center; justify-content: center; background-color: rgb(173, 173, 173); display: none;&quot;&gt;&#10;            &lt;engine:VisualElement name=&quot;AutoWindow&quot; style=&quot;width: 400px; height: 206px; background-color: rgb(241, 241, 241); border-left-color: rgb(82, 82, 82); border-right-color: rgb(82, 82, 82); border-top-color: rgb(82, 82, 82); border-bottom-color: rgb(82, 82, 82); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; display: flex;&quot;&gt;&#10;                &lt;engine:Label text=&quot;Авторизация&quot; name=&quot;enter-text&quot; style=&quot;-unity-text-align: upper-center; font-size: 21px;&quot; /&gt;&#10;                &lt;engine:TextField label=&quot;Логин&quot; name=&quot;login&quot; /&gt;&#10;                &lt;engine:TextField label=&quot;Пароль&quot; name=&quot;parol&quot; password=&quot;true&quot; /&gt;&#10;                &lt;engine:Button text=&quot;Войти&quot; name=&quot;enter&quot; style=&quot;margin-top: 15px;&quot; /&gt;&#10;            &lt;/engine:VisualElement&gt;&#10;        &lt;/engine:VisualElement&gt;&#10;        &lt;engine:VisualElement name=&quot;main-menu&quot; style=&quot;background-color: rgb(173, 173, 173); height: 40px; flex-grow: 1; display: flex;&quot;&gt;&#10;            &lt;engine:VisualElement name=&quot;Personnel-control&quot; style=&quot;flex-grow: 1; display: none;&quot;&gt;&#10;                &lt;engine:VisualElement name=&quot;Navigation-buttons&quot; style=&quot;flex-direction: row; justify-content: space-between; align-items: stretch;&quot;&gt;&#10;                    &lt;engine:Button text=&quot;Структура компании&quot; name=&quot;structure-company&quot; style=&quot;flex-grow: 1; background-color: rgb(224, 223, 223);&quot; /&gt;&#10;                    &lt;engine:Button text=&quot;Мотивация&quot; name=&quot;motivation&quot; style=&quot;flex-grow: 1;&quot; /&gt;&#10;                    &lt;engine:Button text=&quot;Отчеты&quot; name=&quot;reports&quot; style=&quot;flex-grow: 1;&quot; /&gt;&#10;                    &lt;engine:Button text=&quot;Обратная связь&quot; name=&quot;feedback&quot; style=&quot;flex-grow: 1;&quot; /&gt;&#10;                    &lt;engine:Button text=&quot;Заявки на изменения&quot; name=&quot;change-requests&quot; style=&quot;flex-grow: 1;&quot; /&gt;&#10;                &lt;/engine:VisualElement&gt;&#10;                &lt;engine:VisualElement name=&quot;main-screen&quot; style=&quot;flex-grow: 1; margin-top: 4px; margin-right: 4px; margin-bottom: 4px; margin-left: 4px;&quot;&gt;&#10;                    &lt;engine:VisualElement name=&quot;structure-screen&quot; style=&quot;flex-grow: 1; background-color: rgb(241, 241, 241); display: flex; flex-direction: row;&quot;&gt;&#10;                        &lt;engine:VisualElement name=&quot;side-menu_struc&quot; style=&quot;flex-grow: 0; width: 300px;&quot;&gt;&#10;                            &lt;engine:VisualElement name=&quot;settings&quot; style=&quot;flex-grow: 1; display: none;&quot;&gt;&#10;                                &lt;engine:Foldout text=&quot;Полный список работников&quot; name=&quot;ListEmployee&quot; /&gt;&#10;                                &lt;engine:Foldout text=&quot;Наемные работники&quot; name=&quot;ListLeft&quot; /&gt;&#10;                                &lt;engine:DropdownField label=&quot;Фильтры&quot; choices=&quot;free&quot; index=&quot;0&quot; name=&quot;Filters&quot; /&gt;&#10;                            &lt;/engine:VisualElement&gt;&#10;                            &lt;engine:VisualElement name=&quot;new-role&quot; style=&quot;flex-grow: 1; display: flex;&quot;&gt;&#10;                                &lt;engine:Label text=&quot;Назначить нового сотрудника&quot; name=&quot;Head-role&quot; style=&quot;-unity-text-align: upper-center;&quot; /&gt;&#10;                                &lt;engine:VisualElement name=&quot;full-name&quot; class=&quot;inner-box&quot;&gt;&#10;                                    &lt;engine:TextField label=&quot;Фамилия&quot; placeholder-text=&quot;Домбровский&quot; name=&quot;Surename&quot; /&gt;&#10;                                    &lt;engine:TextField label=&quot;Имя&quot; placeholder-text=&quot;Андрей&quot; name=&quot;Name&quot; /&gt;&#10;                                    &lt;engine:TextField label=&quot;Отчество&quot; placeholder-text=&quot;Анатольевич&quot; name=&quot;Secondname&quot; /&gt;&#10;                                &lt;/engine:VisualElement&gt;&#10;                                &lt;engine:VisualElement name=&quot;work&quot; class=&quot;inner-box&quot;&gt;&#10;                                    &lt;engine:DropdownField label=&quot;Отдел&quot; name=&quot;Department&quot; /&gt;&#10;                                    &lt;engine:DropdownField label=&quot;Должность&quot; name=&quot;Job-title&quot; /&gt;&#10;                                &lt;/engine:VisualElement&gt;&#10;                                &lt;engine:VisualElement name=&quot;Add-info&quot; class=&quot;inner-box&quot;&gt;&#10;                                    &lt;engine:TextField label=&quot;Номер телефона&quot; placeholder-text=&quot;+7(800)900-89-89&quot; name=&quot;phone&quot; /&gt;&#10;                                    &lt;engine:TextField label=&quot;Почта&quot; placeholder-text=&quot;andreydom@mail.ru&quot; name=&quot;e-mail&quot; /&gt;&#10;                                    &lt;engine:TextField label=&quot;Адрес&quot; placeholder-text=&quot;Петропавловская 2&quot; name=&quot;Address&quot; /&gt;&#10;                                &lt;/engine:VisualElement&gt;&#10;                                &lt;engine:Button text=&quot;Назначить&quot; name=&quot;AddHuman&quot; /&gt;&#10;                            &lt;/engine:VisualElement&gt;&#10;                        &lt;/engine:VisualElement&gt;&#10;                        &lt;engine:VisualElement name=&quot;divider&quot; style=&quot;flex-grow: 0; width: 4px; background-color: rgb(173, 173, 173);&quot; /&gt;&#10;                        &lt;engine:VisualElement name=&quot;graph-struc&quot; style=&quot;flex-grow: 1; flex-direction: row; flex-wrap: wrap-reverse; align-self: center; justify-content: center;&quot;&gt;&#10;                            &lt;engine:VisualElement name=&quot;blocks&quot; style=&quot;flex-grow: 1; justify-content: space-around; display: none;&quot;&gt;&#10;                                &lt;engine:Foldout text=&quot;Бухгалтерия&quot; name=&quot;Accounting&quot; /&gt;&#10;                                &lt;engine:Foldout text=&quot;Технологический отдел&quot; name=&quot;Engineering&quot; /&gt;&#10;                                &lt;engine:Foldout text=&quot;Маркетинговый отдел&quot; name=&quot;Marketing&quot; /&gt;&#10;                                &lt;engine:Foldout text=&quot;Отдел полетов&quot; name=&quot;Flight&quot; /&gt;&#10;                                &lt;engine:Foldout text=&quot;Финансовый отдел&quot; name=&quot;Finance&quot; /&gt;&#10;                                &lt;engine:Foldout text=&quot;Диспетчерский отдел&quot; name=&quot;Dispatch&quot; /&gt;&#10;                            &lt;/engine:VisualElement&gt;&#10;                            &lt;engine:VisualElement name=&quot;AccountingBlock&quot; style=&quot;margin-left: 40px; margin-top: 40px; margin-right: 40px; margin-bottom: 40px;&quot;&gt;&#10;                                &lt;engine:Label text=&quot;Бухгалтерия&quot; name=&quot;Name&quot; /&gt;&#10;                                &lt;engine:VisualElement name=&quot;Tree&quot; style=&quot;flex-grow: 1; flex-direction: row;&quot;&gt;&#10;                                    &lt;engine:VisualElement name=&quot;Margin&quot; style=&quot;flex-grow: 1; width: 15%;&quot; /&gt;&#10;                                    &lt;engine:VisualElement name=&quot;first-level&quot; style=&quot;flex-grow: 1;&quot;&gt;&#10;                                        &lt;engine:Label text=&quot;Директор Бухгалтерии - Анна Витальевна&quot; name=&quot;SuperVisor&quot; class=&quot;text-graph&quot; /&gt;&#10;                                        &lt;engine:VisualElement name=&quot;second-level&quot; style=&quot;flex-grow: 1; flex-direction: row;&quot;&gt;&#10;                                            &lt;engine:VisualElement name=&quot;Margin&quot; style=&quot;flex-grow: 1; width: 15%;&quot; /&gt;&#10;                                            &lt;engine:VisualElement name=&quot;Employees&quot; style=&quot;flex-grow: 1;&quot;&gt;&#10;                                                &lt;engine:Label text=&quot;Борис Васильевич&quot; name=&quot;first&quot; class=&quot;text-graph&quot; /&gt;&#10;                                                &lt;engine:Label text=&quot;Анна Юрьевна&quot; name=&quot;second&quot; class=&quot;text-graph&quot; /&gt;&#10;                                                &lt;engine:Label text=&quot;Мария ...&#10;(The content is truncated because it is too long)" name="ConsoleContent" style="color: rgba(27, 27, 27, 0.6);" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="archive-screen" style="flex-grow: 1; background-color: rgb(241, 241, 241); display: flex; flex-direction: row;">
+                        <engine:VisualElement name="left-side" style="flex-grow: 1; flex-direction: column; flex-wrap: wrap-reverse;">
+                            <engine:VisualElement name="search-box" style="height: 45%;">
+                                <engine:VisualElement name="search-line" style="flex-grow: 0; flex-direction: row; align-items: flex-start;">
+                                    <engine:VisualElement name="search-icon" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BF%D0%BE%D0%B8%D1%81%D0%BA-50.png?fileID=2800000&amp;guid=0198d2d6fb095ac4dac87ff2bb34594d&amp;type=3#icons8-поиск-50&quot;); -unity-background-scale-mode: scale-to-fit; background-size: 30px 30px; width: 40px; height: 40px;" />
+                                    <engine:TextField placeholder-text="рекламная кампания" name="TextField" style="flex-grow: 1;" />
+                                </engine:VisualElement>
+                                <engine:VisualElement name="files" style="flex-grow: 1;">
+                                    <engine:VisualElement name="document" style="flex-direction: row; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); align-items: center; background-color: rgb(195, 195, 195);">
+                                        <engine:VisualElement name="margin" style="width: 10px;" />
+                                        <engine:VisualElement name="icon" style="width: 25px; height: 25px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82-60.png?fileID=2800000&amp;guid=a495ecb1fafa7814f84205a73f66bfb1&amp;type=3#icons8-документ-60&quot;);" />
+                                        <engine:Label text="Отчет об эффективностьи РК.docx" name="name" />
+                                    </engine:VisualElement>
+                                    <engine:VisualElement name="document" style="flex-direction: row; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(173, 173, 173); border-right-color: rgb(173, 173, 173); border-top-color: rgb(173, 173, 173); border-bottom-color: rgb(173, 173, 173); align-items: center;">
+                                        <engine:VisualElement name="margin" style="width: 10px;" />
+                                        <engine:VisualElement name="icon" style="width: 25px; height: 25px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82-60.png?fileID=2800000&amp;guid=a495ecb1fafa7814f84205a73f66bfb1&amp;type=3#icons8-документ-60&quot;);" />
+                                        <engine:Label text="Отчет о выполнении рейсов.docx" name="name" />
+                                    </engine:VisualElement>
+                                    <engine:VisualElement name="document" style="flex-direction: row; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(173, 173, 173); border-right-color: rgb(173, 173, 173); border-top-color: rgb(173, 173, 173); border-bottom-color: rgb(173, 173, 173); align-items: center;">
+                                        <engine:VisualElement name="margin" style="width: 10px;" />
+                                        <engine:VisualElement name="icon" style="width: 25px; height: 25px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82-60.png?fileID=2800000&amp;guid=a495ecb1fafa7814f84205a73f66bfb1&amp;type=3#icons8-документ-60&quot;);" />
+                                        <engine:Label text="Анализ лояльности клиентов.docx" name="name" />
+                                    </engine:VisualElement>
+                                    <engine:VisualElement name="document" style="flex-direction: row; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(173, 173, 173); border-right-color: rgb(173, 173, 173); border-top-color: rgb(173, 173, 173); border-bottom-color: rgb(173, 173, 173); align-items: center;">
+                                        <engine:VisualElement name="margin" style="width: 10px;" />
+                                        <engine:VisualElement name="icon" style="width: 25px; height: 25px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82-60.png?fileID=2800000&amp;guid=a495ecb1fafa7814f84205a73f66bfb1&amp;type=3#icons8-документ-60&quot;);" />
+                                        <engine:Label text="Отчет по багажу.docx" name="name" />
+                                    </engine:VisualElement>
+                                    <engine:VisualElement name="document" style="flex-direction: row; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(173, 173, 173); border-right-color: rgb(173, 173, 173); border-top-color: rgb(173, 173, 173); border-bottom-color: rgb(173, 173, 173); align-items: center;">
+                                        <engine:VisualElement name="margin" style="width: 10px;" />
+                                        <engine:VisualElement name="icon" style="width: 25px; height: 25px; background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82-60.png?fileID=2800000&amp;guid=a495ecb1fafa7814f84205a73f66bfb1&amp;type=3#icons8-документ-60&quot;);" />
+                                        <engine:Label text="Отчет о топливных расходах за период.docx" name="name" />
+                                    </engine:VisualElement>
+                                </engine:VisualElement>
+                            </engine:VisualElement>
+                            <engine:VisualElement name="divider1" style="flex-grow: 0; width: auto; background-color: rgb(173, 173, 173); height: 4px;" />
+                            <engine:VisualElement name="documents" style="flex-grow: 1; flex-direction: column; flex-wrap: wrap-reverse;">
+                                <engine:Label text="Составить ссылку на документ" name="LabelDoc" style="border-left-color: rgb(115, 115, 115); border-right-color: rgb(115, 115, 115); border-top-color: rgb(115, 115, 115); border-bottom-color: rgb(115, 115, 115); border-bottom-width: 3px; -unity-text-align: upper-center;" />
+                                <engine:DropdownField label="Тип ссылки" name="TypeDoc" />
+                                <engine:Button text="Передать ссылку в буфер обмена" name="NewDoc" />
+                                <engine:Button text="Добавить ссылку в открытый проект" name="Archive" />
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                        <engine:VisualElement name="divider2" style="flex-grow: 0; width: 4px; background-color: rgb(173, 173, 173);" />
+                        <engine:VisualElement name="right-side" style="flex-grow: 1; flex-direction: column; flex-wrap: wrap-reverse; width: 60%;">
+                            <engine:VisualElement name="vision" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/image_2024-12-26_21-35-48.png?fileID=2800000&amp;guid=803872a442762d74bba65adfa7916a88&amp;type=3#image_2024-12-26_21-35-48&quot;); -unity-background-scale-mode: scale-to-fit;" />
+                            <engine:VisualElement name="control-buttons" style="flex-grow: 0; flex-direction: row; align-items: center; justify-content: center;">
+                                <engine:Button name="minus" style="background-image: url(&quot;project://database/Assets/UI/icons8-%D0%B7%D0%BD%D0%B0%D0%BA-%D0%BC%D0%B8%D0%BD%D1%83%D1%81-64.png?fileID=2800000&amp;guid=0fddf527ccea2d04ab358dd00a8f8c50&amp;type=3#icons8-знак-минус-64&quot;); width: 50px; height: 50px;" />
+                                <engine:Button name="plus" style="background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BF%D0%BB%D1%8E%D1%81-96.png?fileID=2800000&amp;guid=a09c62c02d32ee74bbc7a879a0bed4cc&amp;type=3#icons8-плюс-96&quot;); width: 50px; height: 50px;" />
+                                <engine:Button name="full" style="background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD-100.png?fileID=2800000&amp;guid=7e528c0aca721e4419c6e58135bacd5a&amp;type=3#icons8-полный-экран-100&quot;); width: 50px; height: 50px;" />
+                                <engine:Button name="search" style="background-image: url(&quot;project://database/Assets/UI/icons8-%D0%BF%D0%BE%D0%B8%D1%81%D0%BA-50.png?fileID=2800000&amp;guid=0198d2d6fb095ac4dac87ff2bb34594d&amp;type=3#icons8-поиск-50&quot;); width: 50px; height: 50px;" />
+                            </engine:VisualElement>
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
